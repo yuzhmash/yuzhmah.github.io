@@ -1,33 +1,338 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>form</title>
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <form action="telegram.php" class="form">
-            <h1 class="form__title">Ваши данные</h1>
-            <div class="form__field">
-                <input name="name" type="name" placeholder=" ">
-                <label>Ваше имя</label>
+    <section class="header">
+        <div class="header__logo">
+            <img src="icons/logo.png" alt="YourMeal">
+        </div>
+        <div class="header__hamburger">
+            <img src="img/hamburger__header.png" alt="hamburger">
+            <div class="heade__text">
+                <h1 class="header__hamburger_title">Только самые <br> <span>сочные бургеры!</span></h1>
+                <h2 class="header__hamburger_subtitle">Бесплатная доставка от 599₽</h2>
             </div>
-            <div class="form__field">
-                <input name="phone" type="number" placeholder=" ">
-                <label>Ваш номер</label>
+        </div>
+    </section>
+    <section class="navbar">
+        <nav class="navbar__menu"> 
+            <button class="navbar__menu_item">
+                <img class="navbar__menu_img" src="icons/tabsimg/hamburger.png" alt="hamburger">
+                <div class="navbar__menu_text">
+                    Бургеры
+                </div>
+            </button>
+            <button data-snacks class="navbar__menu_item">
+                <img class="navbar__menu_img" src="icons/tabsimg/snacks.png" alt="snacks">
+                <div class="navbar__menu_text">
+                    Закуски
+                </div>
+            </button>
+            <button class="navbar__menu_item">
+                <img class="navbar__menu_img" src="icons/tabsimg/hot-dogs.png" alt="hot-dogs">
+                <div class="navbar__menu_text">
+                    Хотики
+                </div>
+            </button>
+            <button class="navbar__menu_item">
+                <img class="navbar__menu_img" src="icons/tabsimg/combo.png" alt="combo">
+                <div class="navbar__menu_text">
+                    Комбо
+                </div>
+            </button>
+            <button class="navbar__menu_item">
+                <img class="navbar__menu_img" src="icons/tabsimg/shawarma.png" alt="shawarma">
+                <div class="navbar__menu_text">
+                    Шаурма
+                </div>
+            </button>
+            <button class="navbar__menu_item">
+                <img class="navbar__menu_img" src="icons/tabsimg/pizza.png" alt="pizza">
+                <div class="navbar__menu_text">
+                    Пицца
+                </div>
+            </button>
+            <button class="navbar__menu_item">
+                <img class="navbar__menu_img" src="icons/tabsimg/wok.png" alt="wok">
+                <div class="navbar__menu_text">
+                    Вок
+                </div>
+            </button>
+            <button class="navbar__menu_item">
+                <img class="navbar__menu_img" src="icons/tabsimg/dessert.png" alt="dessert">
+                <div class="navbar__menu_text">
+                    Десерты
+                </div>
+            </button>
+            <button class="navbar__menu_item">
+                <img class="navbar__menu_img" src="icons/tabsimg/sauces,png.png" alt="sauces">
+                <div class="navbar__menu_text">
+                    Соусы
+                </div>
+            </button>
+        </nav>
+    </section>
+    <section class="menu">
+        <h2 class="menu__title">
+            Бургеры
+        </h2>
+        <div class="wrapper">
+            <div class="menu__basket">
+                <div class="menu__titles">
+                    <h2>Корзина</h2>
+                    <h3>Тут пока пусто :(</h3>
+                </div>
+                <div class="menu__block">0</div>
             </div>
-            <div class="form__field">
-                <input name="email" type="email" placeholder=" ">
-                <label>Ваша почта</label>
+            <div class="menu__basket_with">
+                <div class="menu__titles">
+                    <h2>Корзина</h2>
+                </div>
+                <div class="menu__block menu__block_with"></div>
+                <div class="menu__basket_with_blocks">
+                    <!-- <div class="plus_bocks">
+                        <div class="plus_bocks__bocks">
+                            <div class="plus_bocks__img">
+                                <img src="img/hambugers/Мясная_бомба.png" alt="">
+                            </div>
+                            <div class="plus_blocks__about">
+                                <div class="plus_bocks__title">Супер сырный</div>
+                                <div class="plus_bocks__weight">512г</div>
+                                <div class="plus_bocks__price">550₽</div>
+                            </div>
+                            <div class="plus_bocks__count"><div class="minus">&minus;</div>3 <div class="plus">&plus;</div></div>
+                        </div>
+                    </div> -->
+                </div>
             </div>
-            <button>отпрвить</button>
-        </form>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+            <div class="menu__cards">
+                <div class="menu__cards__card">
+                    <div class="menu__cards__img">
+                        <img src="img/hambugers/Мясная_бомба.png" alt="Мясная_бомба">
+                    </div>
+                    <div class="menu__cards__price">
+                        689₽
+                    </div>
+                    <div class="menu__cards__title">
+                        Мясная бомба
+                    </div>
+                    <div class="menu__cards__weight">
+                        520г
+                    </div>
+                    <button class="menu__cards__btn">Добавить</button>
+                </div>
+                <div class="menu__cards__card">
+                    <div class="menu__cards__img">
+                        <img src="img/hambugers/Супер_сырный.png" alt="Супер_сырный">
+                    </div>
+                    <div class="menu__cards__price">
+                        550₽
+                    </div>
+                    <div class="menu__cards__title">
+                        Супер сырный
+                    </div>
+                    <div class="menu__cards__weight">
+                        512г
+                    </div>
+                    <button class="menu__cards__btn">Добавить</button>
+                </div>
+                <div class="menu__cards__card">
+                    <div class="menu__cards__img">
+                        <img src="img/hambugers/Сытный.png" alt="Сытный">
+                    </div>
+                    <div class="menu__cards__price">
+                        639₽
+                    </div>
+                    <div class="menu__cards__title">
+                        Сытный
+                    </div>
+                    <div class="menu__cards__weight">
+                        580г
+                    </div>
+                    <button class="menu__cards__btn">Добавить</button>
+                </div>
+                <div class="menu__cards__card">
+                    <div class="menu__cards__img">
+                        <img src="img/hambugers/Тяжелый_удар.png" alt="Тяжелый_удар.png">
+                    </div>
+                    <div class="menu__cards__price">
+                        480₽
+                    </div>
+                    <div class="menu__cards__title">
+                        Тяжелый удар
+                    </div>
+                    <div class="menu__cards__weight">
+                        470г
+                    </div>
+                    <button class="menu__cards__btn">Добавить</button>
+                </div>
+                <div class="menu__cards__card">
+                    <div class="menu__cards__img">
+                        <img src="img/hambugers/Вечная_классика.png" alt="Вечная_классика">
+                    </div>
+                    <div class="menu__cards__price">
+                        450₽
+                    </div>
+                    <div class="menu__cards__title">
+                        Вечная классика
+                    </div>
+                    <div class="menu__cards__weight">
+                        450г
+                    </div>
+                    <button class="menu__cards__btn">Добавить</button>
+                </div>
+                <div class="menu__cards__card">
+                    <div class="menu__cards__img">
+                        <img src="img/hambugers/Итальянский.png" alt="Итальянский">
+                    </div>
+                    <div class="menu__cards__price">
+                        560₽
+                    </div>
+                    <div class="menu__cards__title">
+                        Итальянский
+                    </div>
+                    <div class="menu__cards__weight">
+                        510г
+                    </div>
+                    <button class="menu__cards__btn">Добавить</button>
+                </div>
+            </div>
+            <div class="menu__cards snacks">
+                <div class="menu__cards__card">
+                    <div class="menu__cards__img">
+                        <img src="img/hambugers/Мясная_бомба.png" alt="Мясная_бомба">
+                    </div>
+                    <div class="menu__cards__price">
+                        689₽
+                    </div>
+                    <div class="menu__cards__title">
+                        Мясная бомба
+                    </div>
+                    <div class="menu__cards__weight">
+                        520г
+                    </div>
+                    <button class="menu__cards__btn">Добавить</button>
+                </div>
+                <div class="menu__cards__card">
+                    <div class="menu__cards__img">
+                        <img src="img/hambugers/Супер_сырный.png" alt="Супер_сырный">
+                    </div>
+                    <div class="menu__cards__price">
+                        550₽
+                    </div>
+                    <div class="menu__cards__title">
+                        Супер сырный
+                    </div>
+                    <div class="menu__cards__weight">
+                        512г
+                    </div>
+                    <button class="menu__cards__btn">Добавить</button>
+                </div>
+                <div class="menu__cards__card">
+                    <div class="menu__cards__img">
+                        <img src="img/hambugers/Сытный.png" alt="Сытный">
+                    </div>
+                    <div class="menu__cards__price">
+                        639₽
+                    </div>
+                    <div class="menu__cards__title">
+                        Сытный
+                    </div>
+                    <div class="menu__cards__weight">
+                        580г
+                    </div>
+                    <button class="menu__cards__btn">Добавить</button>
+                </div>
+                <div class="menu__cards__card">
+                    <div class="menu__cards__img">
+                        <img src="img/hambugers/Тяжелый_удар.png" alt="Тяжелый_удар.png">
+                    </div>
+                    <div class="menu__cards__price">
+                        480₽
+                    </div>
+                    <div class="menu__cards__title">
+                        Тяжелый удар
+                    </div>
+                    <div class="menu__cards__weight">
+                        470г
+                    </div>
+                    <button class="menu__cards__btn">Добавить</button>
+                </div>
+                <div class="menu__cards__card">
+                    <div class="menu__cards__img">
+                        <img src="img/hambugers/Вечная_классика.png" alt="Вечная_классика">
+                    </div>
+                    <div class="menu__cards__price">
+                        450₽
+                    </div>
+                    <div class="menu__cards__title">
+                        Вечная классика
+                    </div>
+                    <div class="menu__cards__weight">
+                        450г
+                    </div>
+                    <button class="menu__cards__btn">Добавить</button>
+                </div>
+                <div class="menu__cards__card">
+                    <div class="menu__cards__img">
+                        <img src="img/hambugers/Итальянский.png" alt="Итальянский">
+                    </div>
+                    <div class="menu__cards__price">
+                        560₽
+                    </div>
+                    <div class="menu__cards__title">
+                        Итальянский
+                    </div>
+                    <div class="menu__cards__weight">
+                        510г
+                    </div>
+                    <button class="menu__cards__btn">Добавить</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__wrapper">
+            <div class="footer__img">
+                <img src="img/biglogo.png" alt="">
+            </div>
+            <div class="footer__subwrapper">
+                <div class="footer__call">
+                    <div class="footer__call_descr">Номер для заказа</div>
+                    <a href="tel:79308333811" class="footer__call_number">+7(930)833-38-11</a>
+                </div>
+                <div class="footer__social">
+                    <div class="footer__social_descr">Мы в соцсетях</div>
+                    <a href="#" class="footer__social_vk"><img src="img/entypo-social_vk-with-circle.png" alt=""></a>
+                    <a href="#" class="footer__social_telegram"><img src="img/bi_telegram.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__info">© YouMeal, 2022</div>
+    </footer>
+    <section class="modal">
+        <div class="modal__about">
+            <div class="modal__about__title">Мясная бомба</div>
+            <div class="modal__about__close">&times;</div>
+            <div class="modal__about__info">
+                <img src="img/hambugers/Итальянский.png" alt="Итальянский">
+                <div class="modal__about__imfo_descr"><span>Супер мясное наслаждение! Большая <br> рубленая котлета из свежего говяжего мяса покорит вас своей сочностью, а хрустящие листья салата добавят свежести.</span> <br><br>
+                    Состав: <br>Пшеничная булочка<br>Котлета из говядины<br>Красный лук<br>Листья салата<br>Соус горчичный<br><span class="span-weignt">520г, ккал 430</span></div>
+            </div>
+            <button class="footer__about__btn">Добавить</button>
+            <div class="modal__about__count">1</div>
+            <div class="modal__about__price">689₽</div>
+        </div>
+    </section>
     <script src="js/script.js"></script>
-    
 </body>
 </html>

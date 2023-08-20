@@ -1,64 +1,142 @@
-$('.form').on('submit', function (event) {
+'use strict';
 
-    event.stopPropagation();
-    event.preventDefault();
+// document.addEventListner('DOMContentLoaded', () => {
+    // const btns = document.querySelectorAll('.navbar__menu_item'),
+    //       btnsParent = document.querySelector('.navbar__menu'),
+    //       text = document.querySelectorAll('.navbar__menu_text'),
+    //       img = document.querySelectorAll('.navbar__menu_img');
 
-    let form = this,
-        submit = $('.submit', form),
-        data = new FormData(),
-        files = $('input[type=file]')
+    // const hideBtnsActive = () => {
+    //     btns.forEach(elem => {
+    //         elem.classList.remove('navbar__menu_item_active', 'some')
+    //     })
+    // };
+
+    // const showBtnsActive = (i=0) => {
+    //     btns[i].classList.add('navbar__menu_item_active', 'some')
+    // }
+    // showBtnsActive();
+    // hideBtnsActive();
+
+    // btnsParent.addEventListener('click', (e) => { 
+    //     if (e.target && e.target.classList.contains('navbar__menu_text')) {
+    //         text.forEach((elem, i) => {
+    //             if (e.target === elem) {
+    //                 hideBtnsActive();
+    //                 showBtnsActive(i);
+    //             }
+    //         })
+    //     }
+    //     if (e.target && e.target.classList.contains('navbar__menu_img')) {
+    //         img.forEach((elem, i) => {
+    //             if (e.target === elem) {
+    //                 hideBtnsActive();
+    //                 showBtnsActive(i);
+    //             }
+    //         })
+    //     }
+    //     if (e.target && e.target.classList.contains('navbar__menu_item')) {
+    //         btns.forEach((elem, i) => {
+    //             if (e.target === elem) {
+    //                 hideBtnsActive();
+    //                 showBtnsActive(i);
+    //             }
+    //         })
+    //     }
+    // })
 
 
-    $('.submit', form).val('Отправка...');
-    $('input, textarea', form).attr('disabled','');
 
-    data.append( 'name', 		$('[name="name"]', form).val() );
-    data.append( 'phone', 		$('[name="phone"]', form).val() );
-    data.append( 'email', 		$('[name="email"]', form).val() );
-   
 
-    files.each(function (key, file) {
-        let cont = file.files;
-        if ( cont ) {
-            $.each( cont, function( key, value ) {
-                data.append( key, value );
-            });
+    const btnsAdd = document.querySelectorAll('.menu__cards__btn'),
+          basket = document.querySelector('.menu__block_with'),
+          basketWith = document.querySelector('.menu__basket_with'),
+          menuBasket = document.querySelector('.menu__basket'),
+          menuParent = document.querySelectorAll('.menu__cards__card'),
+          menuCount = document.querySelectorAll('.plus_bocks__count'),
+          minus = document.querySelectorAll('.minus'),
+          plus = document.querySelectorAll('.plus');
+    let num = 0,
+        menuPrice = 0,
+        menuTitle =  0,
+        menuWeight = 0,
+        menuImg;
+    let hambugers = {
+        'Мясная бомба': {
+            weight: '520г',
+            price: '689₽'
+        },
+        'Супер сырный': {
+            weight: '512г',
+            price: '550₽'
+        },
+        'Сытный': {
+            weight: '580г',
+            price: '639₽'
+        },
+        'Тяжелый удар': {
+            weight: '470г',
+            price: '480₽'
+        },
+        'Вечная классика': {
+            weight: '450г',
+            price: '450₽'
+        },
+        'Итальянский': {
+            weight: '510г',
+            price: '560₽'
         }
-    });
+    }
     
-    $.ajax({
-        url: 'ajax.php',
-        type: 'POST',
-        data: data,
-        cache: false,
-        dataType: 'json',
-        processData: false,
-        contentType: false,
-        xhr: function() {
-            let myXhr = $.ajaxSettings.xhr();
-
-            if ( myXhr.upload ) {
-                myXhr.upload.addEventListener( 'progress', function(e) {
-                    if ( e.lengthComputable ) {
-                        let percentage = ( e.loaded / e.total ) * 100;
-                            percentage = percentage.toFixed(0);
-                        $('.submit', form)
-                            .html( percentage + '%' );
-                    }
-                }, false );
+    btnsAdd.forEach((elem, i) => {
+        let subNum = 0;
+        elem.addEventListener('click', (e) => {
+            for (let node of menuParent[i].childNodes) {
+                if (node.className == 'menu__cards__price') {
+                    menuPrice = node.innerText
+                } else if(node.className == 'menu__cards__title') {
+                    menuTitle = node.innerText
+                } else if (node.className == 'menu__cards__weight') {
+                    menuWeight = node.innerText
+                } else if (node.className == 'menu__cards__img') {
+                    menuImg = node.innerText
+                }
             }
+            
+            basket.innerHTML = `<div class="menu__block">${++num}</div>`
+            if (subNum >= 1) {
+                ++subNum;
+                document.querySelector('.plus_bocks__count').innerHTML = `
+                <div class="minus">&minus;</div>${subNum} <div class="plus">&plus;</div>
+                `
+            } else {
+            document.querySelector('.menu__basket_with_blocks').innerHTML += `
+                <div class="plus_bocks">
+                    <div class="plus_bocks__bocks">
+                        <div class="plus_bocks__img">
+                            <img src="img/hambugers/Мясная_бомба.png" alt="">
+                        </div>
+                        <div class="plus_blocks__about">
+                            <div class="plus_bocks__title">${menuTitle}</div>
+                            <div class="plus_bocks__weight">${menuWeight}</div>
+                            <div class="plus_bocks__price">${menuPrice}</div>
+                        </div>
+                        <div class="plus_bocks__count"><div class="minus">&minus;</div>${++subNum} <div class="plus">&plus;</div></div>
+                    </div>
+                </div>
+                `
+            }
+            if (num >= 1) {
+                basketWith.classList.add('show');
+                basketWith.classList.remove('hide');
+                menuBasket.classList.remove('show')
+                menuBasket.classList.add('hide')
+            }
+        })
 
-            return myXhr;
-        },
-        error: function( jqXHR, textStatus ) {
-            // Тут выводим ошибку
-        },
-        complete: function() {
-            // Тут можем что-то делать ПОСЛЕ успешной отправки формы
-            console.log('Complete')
-            form.reset() 
-        }
     });
 
-    return false;
-});
+
+
+
+// });
